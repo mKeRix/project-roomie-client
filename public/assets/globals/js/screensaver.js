@@ -1,6 +1,6 @@
 $(function() {
     // bind idle timer to document
-    $.idleTimer(30000);
+    $.idleTimer(300000);
 
     // screensaver popup
     $('#overlay-screensaver').popup({
@@ -15,6 +15,7 @@ $(function() {
         clockFace: 'TwentyFourHourClock'
     });
 
+    // 
     $(document).on('idle.idleTimer', function (event, elem, obj) {
         $('#overlay-screensaver').popup('show')
     });
@@ -22,6 +23,4 @@ $(function() {
     $(document).on('active.idleTimer', function (event, elem, obj, triggerevent) {
         $('#overlay-screensaver').popup('hide')
     });
-
-
 });
