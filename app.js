@@ -7,7 +7,6 @@ var bodyParser = require('body-parser');
 var breadcrumb = require('express-url-breadcrumb');
 
 var routes = require('./routes/index');
-var users = require('./routes/users');
 
 var app = express();
 
@@ -30,7 +29,6 @@ app.use(breadcrumb(function(item, index){
 }));
 
 app.use('/', routes);
-app.use('/users', users);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

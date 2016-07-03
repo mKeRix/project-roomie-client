@@ -15,11 +15,12 @@ $(function() {
         clockFace: 'TwentyFourHourClock'
     });
 
-    // 
+    // on user idle
     $(document).on('idle.idleTimer', function (event, elem, obj) {
         $('#overlay-screensaver').popup('show')
     });
     
+    // on user active
     $(document).on('active.idleTimer', function (event, elem, obj, triggerevent) {
         $('#overlay-screensaver').popup('hide')
     });
