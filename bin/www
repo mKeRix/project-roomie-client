@@ -10,7 +10,7 @@ var debug = require('debug')('ProjectRoomie:server');
 var http = require('http');
 
 /**
- * Hooks.
+ * Hooks and helpers.
  */
 
 var roomUpdateHook = require('../hooks/room-update');

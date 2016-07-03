@@ -4,7 +4,9 @@ var router = express.Router();
 
 /* GET room listing */
 router.get('/', function (req, res, next) {
-
+    models.Room.findAll().then(function (rooms) {
+        res.render('rooms/index', { title: 'Rooms', description: 'list of all rooms', rooms: rooms });
+    })
 });
 
 /* GET room creation form */
@@ -18,7 +20,7 @@ router.post('/create', function (req, res, next) {
         name: req.body.name,
         channel: req.body.channel
     }).then(function () {
-        res.redirect('/');
+        res.redirect('/rooms');
     })
 });
 
