@@ -15,6 +15,8 @@ var http = require('http');
 
 var roomUpdateHook = require('../hooks/room-update');
 
+var webHandlers = require('../handlers/register-web');
+
 /**
  * Get port from environment and store in Express.
  */
@@ -118,8 +120,8 @@ function onListening() {
  * Event listener for Roomie Socket.IO server "connection" event.
  */
 
-function onRoomieConnection(socket) {
-    socket.on('ble tag', function (msg) {
+function onRoomieConnection(client) {
+    client.on('ble tag', function (msg) {
         debug('BLE tag event received: ' + msg);
     });
 }
@@ -128,6 +130,6 @@ function onRoomieConnection(socket) {
  * Event listener for Web Socket.IO server "connection" event.
  */
 
-function onWebConnection(socket) {
-
+function onWebConnection(client) {
+    webHandlers(client);
 }

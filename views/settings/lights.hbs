@@ -1,0 +1,24 @@
+<div class="row">
+    <div class="control-label col-md-3">Select a Philips Hue bridge:</div>
+    <div class="col-md-9">
+        <div class="panel">
+            <div class="panel-heading">
+                <div class="panel-title">
+                    <h4>Bridges on your network</h4>
+                    <div class="panel-action">
+                        <a href="javascript:;" data-toggle="bridge-refresh" data-init-load="true"><i class="ion-refresh"></i></a>
+                    </div><!--.panel-action-->
+                </div>
+            </div><!--.panel-heading-->
+            <div class="panel-body without-padding">
+                <ul id="list-bridges" class="list-material">
+                    <!-- list is loaded via the socket -->
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+{{#section 'scripts'}}
+    <script src="/assets/roomie/js/settings/lights.js"></script>
+{{/section}}

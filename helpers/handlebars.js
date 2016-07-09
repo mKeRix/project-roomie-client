@@ -6,6 +6,7 @@ var hbs = require('hbs');
 
 function registerHandlebarsHelpers() {
     registerGroupedEachHelper();
+    registerSectionHelper();
 }
 
 /**
@@ -27,6 +28,20 @@ function registerGroupedEachHelper() {
         }
         return out;
     });
+}
+
+/**
+ * A helper that allows us to define multiple sections in the main template.
+ */
+
+function registerSectionHelper() {
+    hbs.registerHelper('section', function(name, options){
+        if(!this._sections) this._sections = {}; 
+        if(!this._sections[name]) this._sections[name] = []; 
+        this._sections[name].push(options.fn(this));
+        
+        return null;
+    })
 }
 
 module.exports = registerHandlebarsHelpers;
