@@ -19,6 +19,29 @@
     </div>
 </div>
 
+<!-- Modals -->
+<div class="modal scale fade" id="push-link-modal" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title">Connect to Philips Hue bridge</h4>
+            </div>
+            <div class="modal-body">
+                <svg class="icon-push-link" role="img" width="100%">
+                    <title>Push-Link button</title>
+                    <use xlink:href="/assets/roomie/img/icons/hue/push-link/pushlink_bridgev2.svg#Layer_1"></use>
+                </svg>
+                Please press the button on your Philips Hue bridge and the connect using the button below.
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-flat btn-default" data-dismiss="modal">Close</button>
+                <button type="button" id="push-link-connect" class="btn btn-flat btn-primary">Connect</button>
+            </div>
+        </div><!--.modal-content-->
+    </div><!--.modal-dialog-->
+</div><!--.modal-->
+<!-- End of Modals -->
+
 {{#section 'scripts'}}
     <script src="/assets/roomie/js/settings/lights.js"></script>
 {{/section}}
