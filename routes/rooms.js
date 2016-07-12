@@ -24,4 +24,16 @@ router.post('/create', function (req, res, next) {
     })
 });
 
+/* GET room details */
+router.get('/:slug', function (req, res, next) {
+    models.Room.findOne({ where: { slug: req.param('slug') }})
+        .then(function (room) {
+            res.render('rooms/show', {
+                title: room.name,
+                description: 'placeholder description',
+                room: room
+            })
+        })
+});
+
 module.exports = router;

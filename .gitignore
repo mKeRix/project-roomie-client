@@ -85,4 +85,5 @@ jspm_packages
 ### app specific
 # compiled CSS files
 /public/assets/**/*.css
+!/public/assets/*/plugins/**/*.css
 

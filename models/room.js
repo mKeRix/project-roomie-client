@@ -1,8 +1,20 @@
 'use strict';
+var SequelizeSlugify = require('sequelize-slugify');
+
 module.exports = function(sequelize, DataTypes) {
   var Room = sequelize.define('Room', {
-    name: DataTypes.STRING,
-    channel: DataTypes.STRING
+    slug: {
+      type: DataTypes.STRING,
+      unique: true
+    },
+    name: {
+      type: DataTypes.STRING,
+      allowNull: false
+    },
+    channel: {
+      type: DataTypes.STRING,
+      unique: true
+    }
   }, {
     classMethods: {
       associate: function(models) {
@@ -10,5 +22,10 @@ module.exports = function(sequelize, DataTypes) {
       }
     }
   });
+
+  SequelizeSlugify.slugifyModel(Room, {
+    source: ['name']
+  });
+
   return Room;
 };
