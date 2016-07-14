@@ -78,6 +78,6 @@ socket.on('bridge connection successful', function (msg) {
 
 // bridge connection failed
 socket.on('bridge connection failed', function (msg) {
-    toastr.error('Error when connecting to the bridge: ' + msg);
+    toastr.error('Error when connecting to the bridge: ' + msg.message);
     $('#push-link-connect').removeAttr('disabled');
 });
