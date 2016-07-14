@@ -7,14 +7,8 @@ module.exports = function(sequelize, DataTypes) {
       type: DataTypes.STRING,
       unique: true
     },
-    name: {
-      type: DataTypes.STRING,
-      allowNull: false
-    },
-    channel: {
-      type: DataTypes.STRING,
-      unique: true
-    }
+    name: DataTypes.STRING,
+    channel: DataTypes.STRING
   }, {
     classMethods: {
       associate: function(models) {

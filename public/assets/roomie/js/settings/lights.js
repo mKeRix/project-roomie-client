@@ -67,3 +67,17 @@ $('#push-link-connect').click(function () {
     // visual cues
     button.attr('disabled', true);
 });
+
+// bridge connection worked
+socket.on('bridge connection successful', function (msg) {
+    toastr.success('Successfully connected to ' + msg);
+    setTimeout(function () {
+        location.reload(true);
+    }, 1000);
+});
+
+// bridge connection failed
+socket.on('bridge connection failed', function (msg) {
+    toastr.error('Error when connecting to the bridge: ' + msg);
+    $('#push-link-connect').removeAttr('disabled');
+});
