@@ -1,7 +1,6 @@
 var PhilipsHue = require('../helpers/philipshue');
 
 var handlers = function (client) {
-    var hue = new PhilipsHue(client);
 
     /* search for bridges on network */
     client.on('search bridges', function (data) {
