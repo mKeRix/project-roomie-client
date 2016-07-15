@@ -1,14 +1,16 @@
-var hue = require('../helpers/philipshue');
+var PhilipsHue = require('../helpers/philipshue');
 
 var handlers = function (client) {
+    var hue = new PhilipsHue(client);
+
     /* search for bridges on network */
     client.on('search bridges', function (data) {
-        hue.findBridges(client);
+        hue.api.findBridges();
     });
 
     /* register with the bridge */
     client.on('connect to bridge', function (data) {
-        hue.registerUser(client, data, "Project Roomie server")
+        hue.api.registerUser(data, "Project Roomie server")
     })
 };
 

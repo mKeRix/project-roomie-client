@@ -1,14 +1,19 @@
 var models  = require('../models');
 var hue = require("node-hue-api");
 
-PhilipsHue = {
-    findBridges: function (client) {
+function PhilipsHue(client) {
+    this.client = client;
+}
+
+PhilipsHue.api = {
+
+    findBridges: function () {
         hue.nupnpSearch().then(function (bridges) {
-            client.emit('bridges found', bridges);
+            this.client.emit('bridges found', bridges);
         });
     },
 
-    registerUser: function (client, hostname, description) {
+    registerUser: function (hostname, description) {
         var api = new hue.HueApi();
         api.registerUser(hostname, description)
             .then(function (result) {
@@ -16,11 +21,11 @@ PhilipsHue = {
                     { key: 'hue-hostname', value: hostname },
                     { key: 'hue-username', value: result }
                 ]).then(function () {
-                    client.emit('bridge connection successful', hostname);
+                    this.client.emit('bridge connection successful', hostname);
                 })
             })
             .fail(function (error) {
-                client.emit('bridge connection failed', error);
+                this.client.emit('bridge connection failed', error);
             });
     }
 };
